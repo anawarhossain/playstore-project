@@ -4,20 +4,21 @@ import { FiGithub } from "react-icons/fi";
 import MyNavLink from "../ui/MyNavLink";
 
 const Navbar = () => {
-  const navMenu = [
-    {
-      path: "/",
-      text: "Home",
-    },
-    {
-      path: "/apps",
-      text: "Apps",
-    },
-    {
-      path: "/installedApps",
-      text: "Installation",
-    },
-  ];
+
+  // const navMenu = [
+  //   {
+  //     path: "/",
+  //     text: "Home",
+  //   },
+  //   {
+  //     path: "/apps",
+  //     text: "Apps",
+  //   },
+  //   {
+  //     path: "/installedApps",
+  //     text: "Installation",
+  //   },
+  // ];
 
   return (
     <nav className="shadow-sm">
