@@ -1,9 +1,24 @@
 import React from "react";
 import Logo from "../../assets/images/logo.png";
 import { FiGithub } from "react-icons/fi";
-import { NavLink } from "react-router";
+import MyNavLink from "../ui/MyNavLink";
 
 const Navbar = () => {
+  const navMenu = [
+    {
+      path: "/",
+      text: "Home",
+    },
+    {
+      path: "/apps",
+      text: "Apps",
+    },
+    {
+      path: "/installedApps",
+      text: "Installation",
+    },
+  ];
+
   return (
     <nav className="shadow-sm">
       <div className="navbar bg-base-100 container mx-auto">
@@ -31,13 +46,15 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink>Home</NavLink>
+                <MyNavLink to={"/"} className={"p-3"}>
+                  Home
+                </MyNavLink>
               </li>
               <li>
-                <NavLink>Apps</NavLink>
+                <MyNavLink to={"/apps"}>Apps</MyNavLink>
               </li>
               <li>
-                <NavLink>Installation</NavLink>
+                <MyNavLink to={"/installedApps"}>Installation</MyNavLink>
               </li>
             </ul>
           </div>
@@ -48,35 +65,21 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
+
+            {/* {navMenu.map((item) => (
+              <li>
+                <MyNavLink to={item.path}>{item.text}</MyNavLink>
+              </li>
+            ))} */}
+
             <li>
-              <NavLink
-                to={"/"}
-                className={({ isActive }) =>
-                  `font-semibold ${isActive ? "btn" : ""}`
-                }
-              >
-                Home
-              </NavLink>
+              <MyNavLink to={"/"}>Home</MyNavLink>
             </li>
             <li>
-              <NavLink
-                to={"/apps"}
-                className={({ isActive }) =>
-                  `font-semibold ${isActive ? "btn" : ""}`
-                }
-              >
-                Apps
-              </NavLink>
+              <MyNavLink to={"/apps"}>Apps</MyNavLink>
             </li>
             <li>
-              <NavLink
-                to={"/installedAppes"}
-                className={({ isActive }) =>
-                  `font-semibold ${isActive ? "btn" : ""}`
-                }
-              >
-                Installation
-              </NavLink>
+              <MyNavLink to={"/installedApps"}>Installation</MyNavLink>
             </li>
           </ul>
         </div>
