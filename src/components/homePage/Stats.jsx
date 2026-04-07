@@ -3,7 +3,9 @@ import React from "react";
 const Stats = () => {
   return (
     <div className="bg-linear-to-r from-[#8057E3] to-[#AE7FEF] text-white p-10">
-      <h1 className="text-4xl font-bold text-center mb-8">Trusted by Millions, Built for You</h1>
+      <h1 className="text-4xl font-bold text-center mb-8">
+        Trusted by Millions, Built for You
+      </h1>
       <div className="flex justify-center items-center">
         <div className="stats shadow">
           <div className="stat place-items-center">
