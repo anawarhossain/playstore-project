@@ -4,6 +4,7 @@ import TrendingApps from "../../components/homePage/TrendingApps";
 import Stats from "../../components/homePage/Stats";
 
 const HomePage = () => {
+  
   return (
     <div className="cointainer mx-auto">
       <Banner />
