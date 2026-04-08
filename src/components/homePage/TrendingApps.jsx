@@ -1,21 +1,34 @@
-import React, { use } from "react";
+// import React, { use } from "react";
+import { useEffect, useState } from "react";
 import { FiDownload, FiStar } from "react-icons/fi";
-import { useLoaderData } from "react-router";
+import AppCard from "../ui/AppCard";
+// import { useLoaderData } from "react-router";
 
 // 1.
 // const appsPromise = fetch("/data.json").then((res) => res.json());
 
-
-
 const TrendingApps = () => {
-
   // 1.
   // const getApps = use(appsPromise);
   // console.log(getApps);
 
   // 2.
-  const getDataByLoader = useLoaderData();
-  console.log(getDataByLoader);
+  // const getDataByLoader = useLoaderData();
+  // console.log(getDataByLoader);
+
+  // 3
+const [apps, setApps] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("/data.json");
+      const data = await res.json();
+      console.log(data);
+      setApps(data);
+    };
+    fetchData();
+  }, []);
+  console.log(apps)
 
   return (
     <div className="container mx-auto p-10">
@@ -26,6 +39,7 @@ const TrendingApps = () => {
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* 1 */}
         {/* {getApps.map((app) => (
           <div key={app.id} className=" p-4 rounded-lg shadow-md ">
             <div className="card bg-base-100">
@@ -51,7 +65,8 @@ const TrendingApps = () => {
           </div>
         ))} */}
 
-        {getDataByLoader.map((app) => (
+        {/* 2 */}
+        {/* {getDataByLoader.map((app) => (
           <div key={app.id} className=" p-4 rounded-lg shadow-md ">
             <div className="card bg-base-100">
               <figure>
@@ -74,6 +89,11 @@ const TrendingApps = () => {
               </div>
             </div>
           </div>
+        ))} */}
+
+        {/* 3 */}
+        {apps.map((app) => (
+          <AppCard key={app.id} app={app} />
         ))}
       </div>
     </div>
