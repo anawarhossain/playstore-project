@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router";
 import useApps from "../../hooks/useApps";
 import { CircleLoader } from "react-spinners";
@@ -38,13 +38,13 @@ const AppDetails = () => {
   };
   console.log(installedApps);
 
-  const ratings = [
-    { star: "5 star", count: 140000000, width: "95%" },
-    { star: "4 star", count: 35000000, width: "25%" },
-    { star: "3 star", count: 12000000, width: "10%" },
-    { star: "2 star", count: 5000000, width: "4%" },
-    { star: "1 star", count: 3000000, width: "2%" },
-  ];
+//   const ratings = [
+//     { star: "5 star", count: 140000000, width: "95%" },
+//     { star: "4 star", count: 35000000, width: "25%" },
+//     { star: "3 star", count: 12000000, width: "10%" },
+//     { star: "2 star", count: 5000000, width: "4%" },
+//     { star: "1 star", count: 3000000, width: "2%" },
+//   ];
 
   if (loading) {
     <div className="flex justify-center items-center">
@@ -131,15 +131,15 @@ const AppDetails = () => {
           {/* Stats Bar Chart */}
           <div className="mb-12">
             <div className="space-y-4 max-w-5xl">
-              {ratings.map((item, index) => (
+              {expectedApp?.ratings.map((item, index) => (
                 <div key={index} className="flex items-center gap-4">
                   <span className="w-16 text-sm text-gray-600 whitespace-nowrap">
-                    {item.star}
+                    {item.name}
                   </span>
                   <div className="flex-1 bg-gray-100 h-6 rounded-sm overflow-hidden">
                     <div
                       className="bg-orange-500 h-full transition-all duration-1000"
-                      style={{ width: item.width }}
+                      style={{ width: item.count > 0 ? `${(item.count / expectedApp.ratings.reduce((sum, rating) => sum + rating.count, 0)) * 100}%` : "0%" }}
                     ></div>
                   </div>
                 </div>

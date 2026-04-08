@@ -52,6 +52,9 @@ const Navbar = () => {
                 </MyNavLink>
               </li>
               <li>
+                <MyNavLink to={"/dashboard"}>Dashboard</MyNavLink>
+              </li>
+              <li>
                 <MyNavLink to={"/apps"}>Apps</MyNavLink>
               </li>
               <li>
@@ -66,7 +69,6 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-
             {/* {navMenu.map((item) => (
               <li>
                 <MyNavLink to={item.path}>{item.text}</MyNavLink>
@@ -75,6 +77,9 @@ const Navbar = () => {
 
             <li>
               <MyNavLink to={"/"}>Home</MyNavLink>
+            </li>
+            <li>
+              <MyNavLink to={"/dashboard"}>Dashboard</MyNavLink>
             </li>
             <li>
               <MyNavLink to={"/apps"}>Apps</MyNavLink>

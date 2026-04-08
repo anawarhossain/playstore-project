@@ -1,6 +1,4 @@
 // import React, { use } from "react";
-import { useEffect, useState } from "react";
-import { FiDownload, FiStar } from "react-icons/fi";
 import AppCard from "../ui/AppCard";
 import { CircleLoader } from "react-spinners";
 import { Link } from "react-router";
@@ -113,7 +111,7 @@ const TrendingApps = () => {
         ))} */}
 
           {/* 3 */}
-          {apps.slice(0, 6).map((app) => (
+          {apps.slice(0, 8).map((app) => (
             <AppCard key={app.id} app={app} />
           ))}
         </div>

@@ -9,7 +9,7 @@ const Apps = () => {
   const { apps, loading } = useApps();
 
   return (
-    <div className="container mx-auto p-10">
+    <div className="container mx-auto p-10 space-y-4">
       <div className="text-center space-y-3 p-10">
         <h1 className="text-4xl font-bold">Our All Applications</h1>
         <p className="">
@@ -18,9 +18,10 @@ const Apps = () => {
       </div>
       <div className="flex justify-between items-center font-bold">
         <h1>({apps.length}) Apps Found</h1>
-        <div className="flex justify-center items-center gap-2 p-2 border rounded-lg">
-          <input type="text" placeholder={`${<FaSearch/>}Search apps... `} />
-        </div>
+        <label className="input">
+          <FaSearch className="text-gray-400" />
+          <input type="search" required placeholder="Search" />
+        </label>
       </div>
       {loading ? (
         <div className="flex justify-center items-center">
