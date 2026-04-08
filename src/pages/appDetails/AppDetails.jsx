@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router";
 import useApps from "../../hooks/useApps";
 import { CircleLoader } from "react-spinners";
+import { InstalledAppsContext } from "../../context/InstalledAppsContext";
+import { toast } from "react-toastify";
 
 const AppDetails = () => {
   const { id } = useParams();
-
   const { apps, loading } = useApps();
 
   const expectedApp = apps.find((app) => String(app.id) === id);
-  console.log(expectedApp);
+  const { installedApps, setInstalledApps } = useContext(InstalledAppsContext);
+
+  const handleInstallApp = () => {
+    if (
+      !installedApps.some((installedApp) => installedApp.id === expectedApp.id)
+    ) {
+      setInstalledApps([...installedApps, expectedApp]);
+      toast.success(`Successfully installed ${expectedApp.title}`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        theme: "colored",
+      });
+    } else {
+      toast.info(`${expectedApp.title} is already installed`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        theme: "colored",
+      });
+    }
+  };
+  console.log(installedApps);
 
   const ratings = [
     { star: "5 star", count: 140000000, width: "95%" },
@@ -88,7 +115,12 @@ const AppDetails = () => {
                 </div>
               </div>
 
-              <button className="bg-[#25D366] hover:bg-[#1ebe57] text-white px-6 py-2 rounded-lg font-bold transition-colors">
+              <button
+                onClick={() => {
+                  handleInstallApp(expectedApp.id);
+                }}
+                className="bg-[#25D366] hover:bg-[#1ebe57] text-white px-6 py-2 rounded-lg font-bold transition-colors"
+              >
                 Install Now ({expectedApp?.size} MB)
               </button>
             </div>
