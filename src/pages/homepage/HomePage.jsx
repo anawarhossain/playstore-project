@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className="cointainer mx-auto">
       <Banner />
-      <Stats/>
+      <Stats />
       <Suspense fallback={<div>Loading trending apps...</div>}>
         <TrendingApps />
       </Suspense>

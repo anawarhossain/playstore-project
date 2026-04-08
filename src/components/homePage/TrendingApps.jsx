@@ -17,7 +17,6 @@ const TrendingApps = () => {
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
         {getApps.map((app) => (
-
           <div key={app.id} className=" p-4 rounded-lg shadow-md ">
             <div className="card bg-base-100">
               <figure>
@@ -40,7 +39,6 @@ const TrendingApps = () => {
               </div>
             </div>
           </div>
-
         ))}
       </div>
     </div>
