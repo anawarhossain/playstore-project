@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FiDownload, FiStar } from "react-icons/fi";
 import AppCard from "../ui/AppCard";
 import { CircleLoader } from "react-spinners";
+import { Link } from "react-router";
 // import { useLoaderData } from "react-router";
 
 // 1.
@@ -108,11 +109,17 @@ const TrendingApps = () => {
         ))} */}
 
           {/* 3 */}
-          {apps.map((app) => (
+          {apps.slice(0, 6).map((app) => (
             <AppCard key={app.id} app={app} />
           ))}
         </div>
       )}
+      <div className="text-center p-10">
+        <Link to="/apps">
+          <button className="btn btn-primary">View All</button>
+        </Link>
+      </div>
+
       {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4"> */}
       {/* 1 */}
       {/* {getApps.map((app) => (
