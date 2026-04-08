@@ -2,39 +2,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router/dom";
-import { createBrowserRouter } from "react-router";
-import RootLayout from "./layout/RootLayout";
-import Apps from "./pages/apps/Apps";
-import InstallApps from "./pages/installApps/InstallApps";
-import HomePage from "./pages/homepage/HomePage";
-import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
+import { router } from "./router/Routes";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <RootLayout />,
-    // 2
-    // hydrateFallbackElement: <div className="loading">Loading...</div>,
-    children: [
-      {
-        // path: "/", or
-        index: true,
-        element: <HomePage />,
-        // 2
-        // loader: () => fetch("/data.json"),
-      },
-      {
-        path: "apps",
-        element: <Apps />,
-      },
-      {
-        path: "installedApps",
-        element: <InstallApps />,
-      },
-    ],
-    errorElement: <NotFoundPage />,
-  },
-]);
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

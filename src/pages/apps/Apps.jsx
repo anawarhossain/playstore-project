@@ -16,11 +16,10 @@ const Apps = () => {
           Explore All Apps on the Market developed by us. We code for Millions.
         </p>
       </div>
-      <div className="flex justify-between">
-        <h1>Apps Found</h1>
+      <div className="flex justify-between items-center font-bold">
+        <h1>({apps.length}) Apps Found</h1>
         <div className="flex justify-center items-center gap-2 p-2 border rounded-lg">
-          <FaSearch />
-          <input type="text" placeholder="Search apps..." />
+          <input type="text" placeholder={`${<FaSearch/>}Search apps... `} />
         </div>
       </div>
       {loading ? (
