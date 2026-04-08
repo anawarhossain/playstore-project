@@ -4,6 +4,7 @@ import { FiDownload, FiStar } from "react-icons/fi";
 import AppCard from "../ui/AppCard";
 import { CircleLoader } from "react-spinners";
 import { Link } from "react-router";
+import useApps from "../../hooks/useApps";
 // import { useLoaderData } from "react-router";
 
 // 1.
@@ -19,28 +20,31 @@ const TrendingApps = () => {
   // console.log(getDataByLoader);
 
   // 3
-  const [apps, setApps] = useState([]);
+  // const [apps, setApps] = useState([]);
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-      console.log(data);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await fetch("/data.json");
+  //     const data = await res.json();
+  //     // console.log(data);
 
-      setTimeout(() => {
-        setApps(data);
-        setLoading(false);
-      }, 2000);
+  //     setTimeout(() => {
+  //       setApps(data);
+  //       setLoading(false);
+  //     }, 2000);
 
-      // setApps(data);
-      // setLoading(false);
-    };
-    fetchData();
-  }, []);
-  console.log(apps);
-  console.log(loading);
+  //     // setApps(data);
+  //     // setLoading(false);
+  //   };
+  //   fetchData();
+  // }, []);
+  // console.log(apps);
+  // console.log(loading);
+
+  const { apps, loading } = useApps();
+
 
   return (
     <div className="container mx-auto p-10">
